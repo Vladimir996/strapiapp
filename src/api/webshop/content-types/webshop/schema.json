@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "webshops",
+  "info": {
+    "singularName": "webshop",
+    "pluralName": "webshops",
+    "displayName": "Webshop",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "NameMobile": {
+      "type": "string",
+      "required": true
+    },
+    "MobileDescription": {
+      "type": "text",
+      "required": true
+    },
+    "Model": {
+      "type": "string"
+    },
+    "Sprecification": {
+      "type": "richtext"
+    },
+    "ImgPhone": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Preorder": {
+      "type": "date"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::writer.writer",
+      "inversedBy": "webshops"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "webshops"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "NameMobile"
+    }
+  }
+}
